@@ -36,7 +36,7 @@ Things you may want to cover:
 | first_name                      | string          | null: false          |
 | family_name_kana         | string          | null: false          |
 | first_name_kana            | string          | null: false          |
-| birthday                         | string          | null: false          |
+| birthday                         | date          | null: false          |
 
 ### Association
 
@@ -49,18 +49,14 @@ Things you may want to cover:
 |  column  | Type         | Options         |
 | ------------------ | ----------   | --------------- |
 | user_id                   | references   | null: false, foreign_key: true  |
-| production              | string          | null: false          |
-| category_id             | string          | null: false          |
-| bland_id                  | string          | null: false          |
-| shipping_id             | string          | null: false          |
-| shipping_area         | string          | null: false          |
-| shipping_date         | string          | null: false          |
+| name                       | string          | null: false          |
 | price                         | string          | null: false          |
 | explanation              | string         |                            |
 
 
 ### Association
 
+- 
 - belongs_to :users
 
 ## purchaseテーブル
@@ -74,6 +70,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :users
+- belongs_to :items
 - has_one :delivery
 
 ## deliveryテーブル
@@ -84,7 +81,7 @@ Things you may want to cover:
 | prefecture            | string          | null: false          |
 | municipalities      | string          | null: false          |
 | address                | string          | null: false          |
-| building                | string          | null: false          |
+| building                | string          |                           |
 | phone_number    | string          | null: false          |
 
 ### Association
