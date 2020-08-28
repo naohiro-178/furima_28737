@@ -46,12 +46,17 @@ Things you may want to cover:
 
 ## itemsテーブル
 
-|  column  | Type         | Options         |
-| ------------------ | ----------   | --------------- |
-| user_id                   | references   | null: false, foreign_key: true  |
-| name                       | string          | null: false          |
+|  column                   | Type            | Options             |
+| ------------------ | ------------ | --------------- |
+| user_id                    | references   | null: false, foreign_key: true  |
+| name                       | string           | null: false          |
 | price                         | string          | null: false          |
-| explanation              | string         |                            |
+| explanation              | string          |                            |
+| category_id              | integer         | null: false          |
+| bland_id                   | integer         | null: false          |
+| shipping_id              | integer         | null: false          |
+| shipping_area          | integer          | null: false          |
+| shipping_date          | integer          | null: false          |
 
 
 ### Association
@@ -69,8 +74,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 - has_one :delivery
 
 ## deliveryテーブル
