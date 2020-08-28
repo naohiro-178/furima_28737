@@ -51,7 +51,7 @@ Things you may want to cover:
 | user_id                    | references   | null: false, foreign_key: true  |
 | name                       | string           | null: false          |
 | price                         | string          | null: false          |
-| explanation              | string          |                            |
+| explanation              | text             |                            |
 | category_id              | integer         | null: false          |
 | bland_id                   | integer         | null: false          |
 | shipping_id              | integer         | null: false          |
