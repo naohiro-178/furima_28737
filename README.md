@@ -41,17 +41,17 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :purchase
+- has_many :purchases
 
 
 ## itemsテーブル
 
 |  column                   | Type            | Options             |
 | ------------------ | ------------ | --------------- |
-| user_id                    | references   | null: false, foreign_key: true  |
+| user_id                     | integer        | null: false, foreign_key: true  |
 | name                       | string           | null: false          |
-| price                         | string          | null: false          |
-| explanation              | text             |                            |
+| price                         | integer        | null: false          |
+| explanation              | text              |                            |
 | category_id              | integer         | null: false          |
 | bland_id                   | integer         | null: false          |
 | shipping_id              | integer         | null: false          |
@@ -61,15 +61,15 @@ Things you may want to cover:
 
 ### Association
 
-- 
-- belongs_to :users
+- has_many :items
+- belongs_to :user
 
 ## purchaseテーブル
 
-|  column       | Type              | Options                                    |
-| ----------- | ------------- | ---------------------------- |
-| user_id         | references    | null: false, foreign_key: true  |
-| item_id         | references    | null: false, foreign_key: true  |
+|  column       | Type       | Options                                    |
+| ----------- | --------- | ---------------------------- |
+| user_id        | integer    | null: false, foreign_key: true  |
+| item_id        | integer    | null: false, foreign_key: true  |
 
 
 ### Association
@@ -88,7 +88,7 @@ Things you may want to cover:
 | address                | string          | null: false          |
 | building                | string          |                           |
 | phone_number    | string          | null: false          |
-| purchased_id       | references | null: false, foreign_key: true |
+| purchased_id       | integer        | null: false, foreign_key: true |
 
 ### Association
 
