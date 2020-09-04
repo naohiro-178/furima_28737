@@ -4,6 +4,9 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :bland
+  belongs_to_active_hash :shipping
+  belongs_to_active_hash :shipping_area
+  belongs_to_active_hash :shipping_date
 
   with_options presence: true do
     validates :image
@@ -11,10 +14,9 @@ class Item < ApplicationRecord
     validates :explanation
     validates :category_id, numericality: { other_than: 1 }
     validates :bland_id, numericality: { other_than: 1 }
-    validates :condition
-    validates :shipping_fee
-    validates :shipping_area
-    validates :shipping_date
+    validates :shipping_id, numericality: { other_than: 1 }
+    validates :shipping_area_id, numericality: { other_than: 1 }
+    validates :shipping_date, numericality: { other_than: 1 }
     validates :price
   end
 end
