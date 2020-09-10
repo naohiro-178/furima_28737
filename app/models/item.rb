@@ -7,11 +7,11 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :explanation
-    validates :category_id
+    validates :category_id, numericality: { other_than: 1, message: 'condition Selected' }
     validates :bland_id, numericality: { other_than: 1, message: 'condition Selected' }
     validates :shipping_id, numericality: { other_than: 1, message: 'shipping fee Selected' }
     validates :shipping_area, numericality: { other_than: 1, message: 'shipping area Select' }
     validates :shipping_date, numericality: { other_than: 1, message: 'shipping date Select' }
-    validates :price
+    validates :price, format: { with: /\A[0-9]+\z/, message: 'price full-width hankaku' }
   end
 end
