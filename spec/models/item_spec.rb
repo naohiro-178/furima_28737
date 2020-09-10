@@ -49,7 +49,7 @@ RSpec.describe Item, type: :model do
     it 'shipping_dateが空では出品できないこと' do
       @item.shipping_date = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping date Select")
+      expect(@item.errors.full_messages).to include('Shipping date Select')
     end
 
     it 'priceが空では出品できないこと' do
