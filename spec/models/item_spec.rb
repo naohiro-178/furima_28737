@@ -28,34 +28,34 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Explanation can't be blank")
     end
 
-    it 'category_idが空では出品できないこと' do
-      @item.category_id = nil
+    it 'category_idが1では出品できないこと' do
+      @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank")
+      expect(@item.errors.full_messages).to include('Category condition Selected')
     end
 
-    it 'bland_idが空では出品できないこと' do
-      @item.bland_id = nil
+    it 'bland_idが1では出品できないこと' do
+      @item.bland_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Bland can't be blank")
+      expect(@item.errors.full_messages).to include('Bland condition Selected')
     end
 
-    it 'shipping_idが空では出品できないこと' do
-      @item.shipping_id = nil
+    it 'shipping_idが1では出品できないこと' do
+      @item.shipping_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping can't be blank")
+      expect(@item.errors.full_messages).to include('Shipping fee Selected')
     end
 
-    it 'shipping_areaが空では出品できないこと' do
-      @item.shipping_area = nil
+    it 'shipping_areaが1では出品できないこと' do
+      @item.shipping_area = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping area can't be blank")
+      expect(@item.errors.full_messages).to include('Shipping area Selected')
     end
 
-    it 'shipping_dateが空では出品できないこと' do
-      @item.shipping_date = nil
+    it 'shipping_dateが1では出品できないこと' do
+      @item.shipping_date = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Shipping date Select')
+      expect(@item.errors.full_messages).to include('Shipping date Selected')
     end
 
     it 'priceが空では出品できないこと' do
@@ -74,6 +74,12 @@ RSpec.describe Item, type: :model do
       @item.price = 10_000_000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+    end
+
+    it '価格は半角数字で入力しないと出品できないこと' do
+      @item.price = "１２３４"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number")
     end
   end
 end
