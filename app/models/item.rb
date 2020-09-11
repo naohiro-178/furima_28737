@@ -13,5 +13,6 @@ class Item < ApplicationRecord
     validates :shipping_area, numericality: { other_than: 1, message: 'Select' }
     validates :shipping_date, numericality: { other_than: 1, message: 'Select' }
     validates :price, numericality: { greater_than_or_equal_to: 300 }
+    validates :price, numericality: { less_than_or_equal_to: 9999999}
   end
 end
