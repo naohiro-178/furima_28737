@@ -2,6 +2,11 @@ class Item < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+  belongs_to_active_hash :bland
+  belongs_to_active_hash :shipping_area
+  belongs_to_active_hash :shipping_date
+  belongs_to_active_hash :shipping
 
   with_options presence: true do
     validates :image
