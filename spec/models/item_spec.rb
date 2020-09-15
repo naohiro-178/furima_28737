@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
       @item = FactoryBot.build(:item)
     end
 
-    it 'image, name, explanation, category_id, bland_id, shipping_id, shipping_area, shipping_date, priceがあれば出品できる' do
+    it 'image, name, explanation, category_id, bland_id, shipping_id, shipping_area_id, shipping_date_id, priceがあれば出品できる' do
       expect(@item).to be_valid
     end
 
@@ -46,14 +46,14 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Shipping fee Selected')
     end
 
-    it 'shipping_areaが1では出品できないこと' do
-      @item.shipping_area = 1
+    it 'shipping_area_idが1では出品できないこと' do
+      @item.shipping_area_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Shipping area Selected')
     end
 
-    it 'shipping_dateが1では出品できないこと' do
-      @item.shipping_date = 1
+    it 'shipping_date_idが1では出品できないこと' do
+      @item.shipping_date_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Shipping date Selected')
     end
