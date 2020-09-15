@@ -55,8 +55,8 @@ Things you may want to cover:
 | category_id              | integer         | null: false          |
 | bland_id                   | integer         | null: false          |
 | shipping_id              | integer         | null: false          |
-| shipping_area          | integer          | null: false          |
-| shipping_date          | integer          | null: false          |
+| shipping_area_id          | integer          | null: false          |
+| shipping_date_id          | integer          | null: false          |
 
 
 ### Association
