@@ -3,16 +3,11 @@ class PurchasesController < ApplicationController
   end
 
   def new
-    @purchase = Delivery.new
+    @purchase = Purchase.new
   end
 
   def create
-    @purchase = Delivery.create(purchase_params)
+    @purchase = Purchase.create
   end
 
-  private
-
-  def purchase_params
-    params.require(:delivery).permit(:postal_code, :prefecture, :municipalities, :address, :phone_number, :purchased_id)
-  end
 end

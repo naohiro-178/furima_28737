@@ -8,4 +8,5 @@ class Delivery < ApplicationRecord
     validates :address
     validates :phone_number, format: {with: /\A\d{10,11}\z/, message: 'Full with 11' }
     validates :purchased_id
+  end
 end

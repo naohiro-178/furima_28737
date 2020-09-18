@@ -1,4 +1,6 @@
 class Purchase < ApplicationRecord
+  belongs_to :user
+  belongs_to :item
   has_one :delivery
 
   with_options presence: true do
@@ -6,3 +8,4 @@ class Purchase < ApplicationRecord
     validates :item_id
   end
 end
+
