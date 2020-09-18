@@ -1,5 +1,7 @@
 class PurchasesController < ApplicationController
+
   def index
+    @items = Item.find(params[:item_id])
   end
 
   def new
@@ -15,4 +17,5 @@ class PurchasesController < ApplicationController
   def purchase_params
     params.require(:purchase).permit(:item_id, :user_id)
   end
+
 end
