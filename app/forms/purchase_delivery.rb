@@ -1,6 +1,6 @@
 class PurchaseDelivery
   include ActiveModel::Model
-  attr_accessor :token, :shipping_area_id, :building, :user_id, :item_id, :postal_code, :shipping_area_id, :municipalities, :address, :building, :phone_number
+  attr_accessor :token, :user_id, :item_id, :postal_code, :shipping_area_id, :municipalities, :address, :building, :phone_number
 
   with_options presence: true do
     validates :user_id
@@ -13,7 +13,8 @@ class PurchaseDelivery
   end
 
   def save
+    # binding.pry
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
-    Delivery.create(shipping_area_id: shipping_area_id, building: building, postal_code: postal_code, municipalities: municipalities, address: address, phone_number: phone_number)
+    Delivery.create!(postal_code: postal_code, shipping_area_id: shipping_area_id, municipalities: municipalities, address: address, building: building, phone_number: phone_number, purchase_id: purchase.id)
   end
 end
