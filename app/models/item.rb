@@ -22,3 +22,4 @@ class Item < ApplicationRecord
     validates :price, format: { with: /\A[0-9]+\z/, message: 'Full-width hankaku characters' }
   end
 end
+
