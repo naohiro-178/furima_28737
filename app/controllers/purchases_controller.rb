@@ -3,7 +3,6 @@ class PurchasesController < ApplicationController
   before_action :set_item, only: [:index, :create]
   before_action :move_to_root, only: [:index]
   def index
-    @items = Item.find(params[:item_id])
     @purchase = Purchase.find(params[:item_id])
   end
 
@@ -12,7 +11,6 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @items = Item.find(params[:item_id])
     @purchase = PurchaseDelivery.new(purchase_params)
     if @purchase.valid?
       pay_item

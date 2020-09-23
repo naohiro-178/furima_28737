@@ -47,6 +47,11 @@ RSpec.describe PurchaseDelivery, type: :model do
       @purchase_delivery.valid?
       expect(@purchase_delivery.errors.full_messages).to include("Address can't be blank")
     end
+
+    it '建物番号がなくても購入可能である' do
+      @purchase_delivery.building != nil
+      @purchase_delivery.valid?
+    end
     
     it '電話番号はハイフンを抜いた11文字以内であること' do
       @purchase_delivery.phone_number = '080-1111-2222'
