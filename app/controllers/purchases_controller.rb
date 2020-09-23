@@ -2,11 +2,8 @@ class PurchasesController < ApplicationController
   before_action :move_to_sign_in, only: [:index]
   before_action :set_item, only: [:index, :create]
   before_action :move_to_root, only: [:index]
-  def index
-    @purchase = Purchase.find(params[:item_id])
-  end
 
-  def new
+  def index
     @purchase = PurchaseDelivery.new
   end
 
