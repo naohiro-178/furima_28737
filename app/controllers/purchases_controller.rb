@@ -26,9 +26,7 @@ class PurchasesController < ApplicationController
   private
 
   def move_to_sign_in
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def set_item
@@ -38,7 +36,7 @@ class PurchasesController < ApplicationController
   def move_to_root
     if user_signed_in? && current_user.id == @item.user_id
       redirect_to root_path
-    elsif @item.purchase != nil
+    elsif !@item.purchase.nil?
       redirect_to root_path
     end
   end
