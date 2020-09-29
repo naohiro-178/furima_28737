@@ -5,11 +5,11 @@ class PurchaseDelivery
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'Full with 7' }
-    validates :shipping_area_id, numericality: { other_than: 1, message: 'Selected' }
-    validates :municipalities, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'Full-width characters' }
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'は7文字以内で入力してください' }
+    validates :shipping_area_id, numericality: { other_than: 1, message: 'を選択してください' }
+    validates :municipalities, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'は全角で入力してください' }
     validates :address
-    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'Full with 11' }
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'は11文字以内で入力してください' }
     validates :token
   end
 
