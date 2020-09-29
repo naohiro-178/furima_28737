@@ -23,4 +23,3 @@ class Item < ApplicationRecord
     validates :price, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
   end
 end
-
