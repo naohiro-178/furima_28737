@@ -18,3 +18,4 @@ class PurchaseDelivery
     Delivery.create(postal_code: postal_code, shipping_area_id: shipping_area_id, municipalities: municipalities, address: address, building: building, phone_number: phone_number, purchase_id: purchase.id)
   end
 end
+
