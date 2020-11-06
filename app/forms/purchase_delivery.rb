@@ -9,7 +9,7 @@ class PurchaseDelivery
     validates :shipping_area_id, numericality: { other_than: 1, message: 'を選択してください' }
     validates :municipalities, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'は全角で入力してください' }
     validates :address
-    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'は11文字以内で入力してください' }
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'は11文字以内で入力して下さい' }
     validates :token
   end
 
@@ -18,4 +18,3 @@ class PurchaseDelivery
     Delivery.create(postal_code: postal_code, shipping_area_id: shipping_area_id, municipalities: municipalities, address: address, building: building, phone_number: phone_number, purchase_id: purchase.id)
   end
 end
-
